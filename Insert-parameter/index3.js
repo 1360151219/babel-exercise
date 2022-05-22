@@ -18,7 +18,6 @@ module.exports = function ({ types, template }, options) {
                 if (node.isNew) return
                 const calleeCode = path.get("callee").toString()
                 if (target.includes(calleeCode)) {
-
                     const { line, column } = node.callee.loc.start
                     const newNode = template.expression(`console.log("filename:line:${line},column:${column}")`)()
                     newNode.isNew = true // 新节点插入后不用遍历
