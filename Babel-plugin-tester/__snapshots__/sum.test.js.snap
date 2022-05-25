@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`unknown plugin case3:xxxxxx: case3:xxxxxx 1`] = `
+
+const a = 1;
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+const hh = 1;
+
+
+`;

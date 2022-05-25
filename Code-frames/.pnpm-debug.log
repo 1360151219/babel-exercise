@@ -1,0 +1,36 @@
+{
+  "0 debug pnpm:scope": {
+    "selected": 1
+  },
+  "1 debug pnpm:package-manifest": {
+    "initial": {},
+    "prefix": "D:\\workplace\\CodingPlace\\babel-exercise\\Code-frames"
+  },
+  "2 debug pnpm:context": {
+    "currentLockfileExists": false,
+    "storeDir": "D:\\.pnpm-store\\v3",
+    "virtualStoreDir": "D:\\workplace\\CodingPlace\\babel-exercise\\Code-frames\\node_modules\\.pnpm"
+  },
+  "3 debug pnpm:stage": {
+    "prefix": "D:\\workplace\\CodingPlace\\babel-exercise\\Code-frames",
+    "stage": "resolution_started"
+  },
+  "4 error pnpm": {
+    "code": "ERR_PNPM_FETCH_404",
+    "hint": "@babel/code-frames is not in the npm registry, or you have no permission to fetch it.\n\nNo authorization header was set for the request.",
+    "request": {
+      "url": "http://registry.npm.taobao.org/@babel%2Fcode-frames"
+    },
+    "response": {
+      "size": 0
+    },
+    "pkgName": "@babel/code-frames",
+    "pkgsStack": [],
+    "err": {
+      "name": "pnpm",
+      "message": "GET http://registry.npm.taobao.org/@babel%2Fcode-frames: Not Found - 404",
+      "code": "ERR_PNPM_FETCH_404",
+      "stack": "pnpm: GET http://registry.npm.taobao.org/@babel%2Fcode-frames: Not Found - 404\n    at RetryOperation._fn (C:\\Users\\86181\\AppData\\Roaming\\nvm\\v14.15.0\\node_modules\\pnpm\\dist\\pnpm.cjs:85709:19)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)"
+    }
+  }
+}

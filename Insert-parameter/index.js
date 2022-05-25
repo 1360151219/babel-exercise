@@ -7,11 +7,11 @@ const fs = require("fs")
 // const { sourceCode } = require("./index2.js") 
 const path = require("path")
 const { code } = transformFileSync(path.resolve(__dirname, "sourceCode.js"), {
-    plugins: [plugin],
+    plugins: [plugin, { name: 'strk' }],
     parserOpts: {
         sourceType: 'unambiguous',
         plugins: ['jsx']
-    }
+    },
 });
 
 fs.writeFileSync("./bundle.jsx", code)

@@ -11,19 +11,9 @@ const generate = require('@babel/generator').default;
 const types = require('@babel/types');
 
 const sourceCode = `
-    console.log(1);
-
-    function func() {
-        console.info(2);
-    }
-
-    export default class Clazz {
-        say() {
-            console.debug(3);
-        }
-        render() {
-            return <div>{console.error(4)}</div>
-        }
+    function foo(){
+        let a=1
+        a=2
     }
 `;
 // const target = ["log", "warn", "error", "debug", "info"]
@@ -38,11 +28,12 @@ const ast = parser.parse(sourceCode, {
 traverse(ast, {
     CallExpression(path, state) {
         const node = path.node
+
+
         // 太繁琐了
         // if (types.isMemberExpression(node.callee)
         //     && node.callee.object.name === "console"
         //     && target.includes(node.callee.property.name))
-
 
         // 一样的效果
         // console.log(path.get("callee").toString());
@@ -52,6 +43,9 @@ traverse(ast, {
             node.arguments.push(types.stringLiteral(`filename:(line:${line},column:${column})`))
         }
 
+    },
+    FunctionDeclaration(path, state) {
+        console.log(path.scope.bindings);
     }
 })
 

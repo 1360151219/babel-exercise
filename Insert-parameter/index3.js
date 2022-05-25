@@ -9,9 +9,14 @@ const target = ['log', 'info', 'error', 'debug'].map(item => `console.${item}`);
 
 
 
-module.exports = function ({ types, template }, options) {
+module.exports = function ({ types, template }, options, dirname) {
     return {
         visitor: {
+            Program(path, state) {
+                // console.log(options, dirname);
+                console.log(state.file.opts);
+
+            },
             //state 中可以拿到用户配置信息 options 和 file 信息
             CallExpression(path, state) {
                 const node = path.node
