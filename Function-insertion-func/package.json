@@ -1,0 +1,10 @@
+{
+	"type": "module",
+	"devDependencies": {
+		"@babel/helper-module-imports": "^7.16.7"
+	},
+	"dependencies": {
+		"@babel/core": "^7.18.2",
+		"es-dirname": "^0.1.0"
+	}
+}

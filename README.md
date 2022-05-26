@@ -4,7 +4,7 @@
 
 涉及到的所有代码均可在[Github](https://github.com/1360151219/babel-exercise)中找到。
 
-[学习知识点笔记](http://www.strk2.cn/views/frontend/Compiler/Babel-execrise.html)
+以下有些练习和知识点在这里[学习知识点笔记](http://www.strk2.cn/views/frontend/Compiler/Babel-execrise.html)
 
 ## 案例一：添加自定义代码参数
 
@@ -111,3 +111,21 @@ pp$2.finishNode = function (node, type) {
   );
 };
 ```
+
+## 练习一：@babel/code-frame 的使用和大概原理
+
+## 练习二：babel-plugin-tester 的使用
+
+## 练习三：@babel/preset-env 配置
+
+## 案例三：函数自动埋点插桩
+
+### 思路分析
+
+首先判断有没有引入过目标文件，没有则通过 `@babel/helper-module-imports` 引入，并且记录下唯一 id 和生成好 AST
+
+然后匹配到目标函数，插入即可。（注意对特殊函数做特殊处理）
+
+**额外思考**
+
+通过匹配函数中的`leadingComments`来进行决定是否插入埋点
