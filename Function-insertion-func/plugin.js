@@ -16,7 +16,7 @@ export default function ({ types: t, template: template }, options) {
                                 state.id = specifiers.get("local").toString()
                             }
                         }
-                        // path.stop()
+                        childPath.stop()
                     }
                 })
                 // 若没有
