@@ -1,0 +1,105 @@
+[
+    {
+        "type": "function",
+        "id": "sayHi",
+        "params": [
+            {
+                "name": "name",
+                "typeAnnotation": "string"
+            },
+            {
+                "name": "age",
+                "typeAnnotation": "number"
+            },
+            {
+                "name": "a",
+                "typeAnnotation": "boolean"
+            }
+        ],
+        "returnType": "string",
+        "description": {
+            "description": "",
+            "tags": [
+                {
+                    "title": "description",
+                    "description": ": Hi 你好"
+                },
+                {
+                    "title": "param",
+                    "description": null,
+                    "type": {
+                        "type": "NameExpression",
+                        "name": "string"
+                    },
+                    "name": "name"
+                },
+                {
+                    "title": "param",
+                    "description": null,
+                    "type": {
+                        "type": "NameExpression",
+                        "name": "number"
+                    },
+                    "name": "age"
+                },
+                {
+                    "title": "param",
+                    "description": null,
+                    "type": {
+                        "type": "NameExpression",
+                        "name": "boolean"
+                    },
+                    "name": "a"
+                },
+                {
+                    "title": "return",
+                    "description": null,
+                    "type": {
+                        "type": "NameExpression",
+                        "name": "string"
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "type": "class",
+        "id": "Guang",
+        "description": {
+            "description": "类测试",
+            "tags": []
+        },
+        "body": [
+            {
+                "type": "classProperty",
+                "id": "name",
+                "typeAnnotation": "string"
+            },
+            {
+                "type": "classMethod",
+                "id": "constructor",
+                "params": [
+                    {
+                        "name": "name",
+                        "typeAnnotation": "string"
+                    }
+                ],
+                "returnType": "any",
+                "description": {
+                    "description": "name 属性",
+                    "tags": []
+                }
+            },
+            {
+                "type": "classMethod",
+                "id": "sayHi",
+                "params": [],
+                "returnType": "string",
+                "description": {
+                    "description": "方法测试",
+                    "tags": []
+                }
+            }
+        ]
+    }
+]

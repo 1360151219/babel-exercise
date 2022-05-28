@@ -26,9 +26,9 @@ export default declare((api, options, dirname) => {
             console.log(generate);
 
             let params = path.node.expressions.map(expression => generate.default(expression).code)
-            replaceExpression = api.template(`${uid}.t(${value},${params.join(',')})`)().expression
+            replaceExpression = api.template(`${uid}.t('${value}',${params.join(',')})`)().expression
         } else {
-            replaceExpression = api.template(`${uid}.t(${value})`)().expression
+            replaceExpression = api.template(`${uid}.t('${value}')`)().expression
         }
 
         if (path.findParent((p) => p.isJSXAttribute()) && !path.findParent(p => p.isJSXExpressionContainer())) {

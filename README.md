@@ -129,3 +129,13 @@ pp$2.finishNode = function (node, type) {
 **额外思考**
 
 通过匹配函数中的`leadingComments`来进行决定是否插入埋点
+
+## 案例四：自动转换国际化--i18n
+
+### 主要思路
+
+首先引入 i18n 模块，遍历处理`TemplateLiteral|StringLiteral`，转换成对应的`i18n.t(value)`节点，并且同时记录下原字符串，生成对应的语言文件。
+
+## 案例五：根据注释或者ts类型自动生成api文档
+
+`doctrine`:将注释转换成AST格式。（作者不再维护）

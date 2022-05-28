@@ -8,7 +8,6 @@ Parser.acorn.keywordTypes["strk2"] = new TokenType("strk2", { keyword: "strk2" }
 
 /* var TokenType = function TokenType(label, conf) {
     if (conf === void 0) conf = {};
-
     this.label = label;
     this.keyword = conf.keyword;
     this.beforeExpr = !!conf.beforeExpr;

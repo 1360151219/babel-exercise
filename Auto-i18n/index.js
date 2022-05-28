@@ -23,4 +23,4 @@ const { code } = babel.transformFromAstSync(ast, source, {
 })
 console.log(code);
 
-// fs.writeFileSync(path.resolve(dirname, "./output.js"), code)
+fs.writeFileSync(path.resolve(dirname, "./dist/output.js"), code)
