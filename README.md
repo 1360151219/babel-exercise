@@ -143,4 +143,8 @@ pp$2.finishNode = function (node, type) {
 - `doctrine`:将注释转换成 AST 格式。（作者不再维护）
 - `path.getTypeAnnotation()`：等同于`path.get('typeAnnotation').node`
 
-完善了一下 AST 解析的情况：加入了`interface`以及泛型的解析
+完善了一下 AST 解析的情况：
+
+- 支持更多的类型解析
+- 加入了`interface`以及泛型的解析
+- 对象字面量的解析

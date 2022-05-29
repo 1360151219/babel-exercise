@@ -17,7 +17,7 @@ const { code } = babel.transformFromAstSync(ast, source, {
     plugins: [
         [AutoDocsPlugin, {
             output: './dist',
-            format: 'json'
+            format: 'markdown'
         }]
     ]
 })

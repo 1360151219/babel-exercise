@@ -14,6 +14,12 @@ function generateDoc(docs, format = 'json') {
                 ext: '.json',
                 content: rerender.json(docs)
             }
+        case 'markdown':
+            return {
+                ext: '.md',
+                content: rerender.markdown(docs)
+
+            }
     }
 }
 export default declare((api, options, dirname) => {
