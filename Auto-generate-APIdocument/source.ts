@@ -1,3 +1,8 @@
+interface IObj<T, K> {
+    a: number
+    b: K
+    c: Array<T>
+}
 /**
  * @description: Hi 你好
  * @param {string} name
@@ -9,7 +14,13 @@ function sayHi(name: string, age: number, a: boolean): string {
     console.log(`hi, ${name}`);
     return `hi, ${name}`;
 }
-
+// string[]
+function printName(names: Array<string>): void {
+    console.log(names.join(','));
+}
+function printObjectSum(obj: IObj<boolean, number>): number {
+    return obj.a + obj.b
+}
 /**
  * 类测试
  */

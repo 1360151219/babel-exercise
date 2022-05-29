@@ -1,5 +1,33 @@
 [
     {
+        "type": "interface",
+        "id": "IObj",
+        "params": [
+            {
+                "name": "T",
+                "types": "TSTypeParameter"
+            },
+            {
+                "name": "K",
+                "types": "TSTypeParameter"
+            }
+        ],
+        "body": [
+            {
+                "name": "a",
+                "typeAnnotation": "number"
+            },
+            {
+                "name": "b",
+                "typeAnnotation": "K"
+            },
+            {
+                "name": "c",
+                "typeAnnotation": "Array<T>"
+            }
+        ]
+    },
+    {
         "type": "function",
         "id": "sayHi",
         "params": [
@@ -17,58 +45,35 @@
             }
         ],
         "returnType": "string",
-        "description": {
-            "description": "",
-            "tags": [
-                {
-                    "title": "description",
-                    "description": ": Hi 你好"
-                },
-                {
-                    "title": "param",
-                    "description": null,
-                    "type": {
-                        "type": "NameExpression",
-                        "name": "string"
-                    },
-                    "name": "name"
-                },
-                {
-                    "title": "param",
-                    "description": null,
-                    "type": {
-                        "type": "NameExpression",
-                        "name": "number"
-                    },
-                    "name": "age"
-                },
-                {
-                    "title": "param",
-                    "description": null,
-                    "type": {
-                        "type": "NameExpression",
-                        "name": "boolean"
-                    },
-                    "name": "a"
-                },
-                {
-                    "title": "return",
-                    "description": null,
-                    "type": {
-                        "type": "NameExpression",
-                        "name": "string"
-                    }
-                }
-            ]
-        }
+        "description": "*\r\n * @description: Hi 你好\r\n * @param {string} name\r\n * @param {number} age\r\n * @param {boolean} a\r\n * @return {string}\r\n "
+    },
+    {
+        "type": "function",
+        "id": "printName",
+        "params": [
+            {
+                "name": "names",
+                "typeAnnotation": "Array<string>"
+            }
+        ],
+        "returnType": "void",
+        "description": " string[]"
+    },
+    {
+        "type": "function",
+        "id": "printObjectSum",
+        "params": [
+            {
+                "name": "obj",
+                "typeAnnotation": "IObj<boolean,number>"
+            }
+        ],
+        "returnType": "number"
     },
     {
         "type": "class",
         "id": "Guang",
-        "description": {
-            "description": "类测试",
-            "tags": []
-        },
+        "description": "*\r\n * 类测试\r\n ",
         "body": [
             {
                 "type": "classProperty",
@@ -85,20 +90,14 @@
                     }
                 ],
                 "returnType": "any",
-                "description": {
-                    "description": "name 属性",
-                    "tags": []
-                }
+                "description": " name 属性"
             },
             {
                 "type": "classMethod",
                 "id": "sayHi",
                 "params": [],
                 "returnType": "string",
-                "description": {
-                    "description": "方法测试",
-                    "tags": []
-                }
+                "description": "*\r\n     * 方法测试\r\n     "
             }
         ]
     }

@@ -136,6 +136,11 @@ pp$2.finishNode = function (node, type) {
 
 首先引入 i18n 模块，遍历处理`TemplateLiteral|StringLiteral`，转换成对应的`i18n.t(value)`节点，并且同时记录下原字符串，生成对应的语言文件。
 
-## 案例五：根据注释或者ts类型自动生成api文档
+## 案例五：根据注释或者 ts 类型自动生成 api 文档
 
-`doctrine`:将注释转换成AST格式。（作者不再维护）
+> 这里我是基于 typescript 的实现
+
+- `doctrine`:将注释转换成 AST 格式。（作者不再维护）
+- `path.getTypeAnnotation()`：等同于`path.get('typeAnnotation').node`
+
+完善了一下 AST 解析的情况：加入了`interface`以及泛型的解析
