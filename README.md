@@ -148,3 +148,7 @@ pp$2.finishNode = function (node, type) {
 - 支持更多的类型解析
 - 加入了`interface`以及泛型的解析
 - 对象字面量的解析
+
+## 案例六：Linter
+
+`path.buildCodeFrameError(msg,Error)`：构造一个 code frame，标记出当前 path 的位置
