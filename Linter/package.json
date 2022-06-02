@@ -1,5 +1,6 @@
 {
 	"type": "module",
+	"engineStrict": false,
 	"dependencies": {
 		"@babel/core": "^7.18.2",
 		"@babel/helper-plugin-utils": "^7.17.12",

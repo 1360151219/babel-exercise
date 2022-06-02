@@ -27,7 +27,7 @@ export default declare((api, options, dirname) => {
                         errs.push(path.get('update').buildCodeFrameError('increase loop', Error))
                     }
                 } else {
-                    // 多个表达式
+                    // 多个表达式：首先记录下testExpression所有的对应关系，再遍历update
                     const testOperators = new Map()
                     for (let testExpression of path.get('test').get('expressions')) {
                         testOperators.set(testExpression.get('left').toString(), testExpression.node.operator)
@@ -37,8 +37,6 @@ export default declare((api, options, dirname) => {
                         let updateOperator = updateExpression.node.operator
                         if (['<', '<='].includes(testOperators.get(updateId)) && updateOperator !== (shouldOperator = '++')) {
                             // throw path.get('update').buildCodeFrameError('decrease loop', Error)
-
-
                             Error.stackTraceLimit = 0
                             errs.push(updateExpression.buildCodeFrameError('decrease loop', Error))
 

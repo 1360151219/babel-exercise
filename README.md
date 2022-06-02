@@ -152,3 +152,13 @@ pp$2.finishNode = function (node, type) {
 ## 案例六：Linter
 
 `path.buildCodeFrameError(msg,Error)`：构造一个 code frame，标记出当前 path 的位置
+
+### 判断 for 循环--loop linter
+
+获取`ForStatement`中的`test`和`update`，判断方向和符号是否导致死循环，比如`for(let i=0;i<10;i--)`
+
+如果`test`有多个 expression，则使用 Map 将其都记录下来，再去遍历 update 进行判断
+
+### 函数无法再次赋值
+
+
