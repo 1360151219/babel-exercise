@@ -151,7 +151,8 @@ pp$2.finishNode = function (node, type) {
 
 ## 案例六：Linter
 
-`path.buildCodeFrameError(msg,Error)`：构造一个 code frame，标记出当前 path 的位置
+- `path.buildCodeFrameError(msg,Error)`：构造一个 code frame，标记出当前 path 的位置
+- `Error.stackTraceLimit`：修改报错信息堆栈
 
 ### 判断 for 循环--loop linter
 
@@ -161,4 +162,8 @@ pp$2.finishNode = function (node, type) {
 
 ### 函数无法再次赋值
 
+通过遍历`AssignmentExpression`获取其 id，然后通过`path.scope.getBinding(id)`去判断其 binding 节点是否是 Function。
 
+### 识别且修复‘==’&‘!=’
+
+类似思路....
