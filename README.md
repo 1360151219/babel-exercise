@@ -167,3 +167,5 @@ pp$2.finishNode = function (node, type) {
 ### 识别且修复‘==’&‘!=’
 
 类似思路....
+
+## 案例七：Type Checker
