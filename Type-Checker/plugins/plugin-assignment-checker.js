@@ -30,14 +30,13 @@ export default declare((api, options, dirname) => {
                 // typeAnnotation是遍历到实际泛型
                 const typeAlias = state[typeAnnotation.typeName.name]
                 const typeParameters = typeAnnotation.typeParameters.params.map((item) => {
-                    // console.log(item);
+                    // todo .. 联合类型判断
                     return resolveType(item)
                 })
                 let map = typeAlias.paramNames.reduce((acc, cur, index) => {
                     acc[cur] = typeParameters[index]
                     return acc
                 }, {})
-
                 // todo 
                 return evalType(typeAlias, map)
 
@@ -60,6 +59,8 @@ export default declare((api, options, dirname) => {
             check = map[checkType.typeName.name]
         } else check = resolveType(checkType)
         let extend = resolveType(extendsType)
+        console.log(map);
+
         if (check === extend || check instanceof extend) {
             return resolveType(trueType)
         } else {

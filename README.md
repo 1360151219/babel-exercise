@@ -169,3 +169,18 @@ pp$2.finishNode = function (node, type) {
 类似思路....
 
 ## 案例七：Type Checker
+
+- 普通的赋值语句类型检查
+- 函数调用参数类型检查
+- 泛型类型检查
+- 条件类型泛型类型检查
+
+主要的思路基本一致：将声明好的函数或者泛型类型跟实际上传入的参数类型做对比即可。
+
+## 案例八：代码混淆和代码压缩
+
+### 混淆
+
+- 访问所有有作用域的节点(别名为`Scopable`)
+- 利用`path.scope.bindings`获取作用域内所有 bindsing
+- 遍历每一个 bindings，如果没有被混淆过，就使用`path.scope.rename()`方式进行混淆
