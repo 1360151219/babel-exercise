@@ -184,3 +184,13 @@ pp$2.finishNode = function (node, type) {
 - 访问所有有作用域的节点(别名为`Scopable`)
 - 利用`path.scope.bindings`获取作用域内所有 bindsing
 - 遍历每一个 bindings，如果没有被混淆过，就使用`path.scope.rename()`方式进行混淆
+
+### 压缩
+
+#### 将 return 后面的语句删除
+
+- 删除 `return` 之后的语句，就是要找到函数声明 `FunctionDeclaration` 的函数体，遍历一遍 body 的 AST，如果是 `return` 之后就打个标记之后删除。
+- 但是要注意，`return` 之后是可以有函数声明的，会做变量提升，还有如果是 `var` 声明的变量，也会做提升，所以要去掉这两种情况。
+
+#### 将声明但是没有引用的变量删除
+

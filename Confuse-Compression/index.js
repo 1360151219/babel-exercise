@@ -4,6 +4,7 @@ import path from "path"
 import parser from "@babel/parser"
 import babel from "@babel/core"
 import ConfusePlugin from "./plugins/plugin-confuse.js"
+import CompressionPlugin from "./plugins/plugin-conpression.js"
 const dirname = esDirname()
 const source = fse.readFileSync(path.resolve(dirname, './source.js'), {
     encoding: 'utf-8'
@@ -12,9 +13,11 @@ const source = fse.readFileSync(path.resolve(dirname, './source.js'), {
 const ast = parser.parse(source, {
     sourceType: "unambiguous",
 })
+
 const { code } = babel.transformFromAstSync(ast, source, {
     plugins: [
-        [ConfusePlugin]
+        [CompressionPlugin]
+        // [ConfusePlugin]
 
     ]
 })

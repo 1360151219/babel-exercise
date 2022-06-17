@@ -6,6 +6,7 @@ function func() {
     console.log(num2);
     return num2;
     console.log(num1);
+    let a = 1
     function add(a, b) {
         return a + b;
     }
