@@ -192,5 +192,20 @@ pp$2.finishNode = function (node, type) {
 - 删除 `return` 之后的语句，就是要找到函数声明 `FunctionDeclaration` 的函数体，遍历一遍 body 的 AST，如果是 `return` 之后就打个标记之后删除。
 - 但是要注意，`return` 之后是可以有函数声明的，会做变量提升，还有如果是 `var` 声明的变量，也会做提升，所以要去掉这两种情况。
 
+```js
+判断是否是 var 关键字声明的变量：
+
+path.isVariableDeclarator({ kind: "var" });
+
+删除节点
+path.remove()
+```
+
 #### 将声明但是没有引用的变量删除
 
+- 通过遍历`Scopable`，将所有的 bindings 都遍历一遍
+- 通过判断`binding.referenced`，如果为`false`就是没有被引用，可以删除
+- 在删除之前还需要判断其是否有副作用：
+  - 是否是调用函数返回值，是的话要保留调用函数语句
+  - 使用`path.scope.isPure(node)` 来进行判断
+  - 根据注释来判断
