@@ -12,13 +12,17 @@ const source = fse.readFileSync(path.resolve(dirname, './source.js'), {
 // console.log(source)
 const ast = parser.parse(source, {
     sourceType: "unambiguous",
+    comments: true
 })
 
 const { code } = babel.transformFromAstSync(ast, source, {
     plugins: [
+        [ConfusePlugin],
         [CompressionPlugin]
-        // [ConfusePlugin]
-
-    ]
+    ],
+    generatorOpts: {
+        comments: false,
+        compact: true
+    }
 })
 console.log(code);
