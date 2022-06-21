@@ -22,7 +22,7 @@ const { code } = babel.transformFromAstSync(ast, source, {
     ],
     generatorOpts: {
         comments: false,
-        compact: true
+        compact:true
     }
 })
 console.log(code);
