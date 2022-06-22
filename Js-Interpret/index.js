@@ -5,7 +5,8 @@ const code = `
 const a=1+2
 console.log(a)
 console.error(a)
-console.warn(a)
+function add(a,b){return a+b}
+console.warn(add(1,2))
 `
 const ast = parser.parse(code, {
     sourceType: "unambiguous"
@@ -59,20 +60,52 @@ const astInterpreters = {
     ExpressionStatement: (node, scope) => {
         evaluate(node.expression, scope)
     },
+    FunctionDeclaration: (node, scope) => {
+        // 自定义函数：函数内块作用域
+        let id = evaluate(node.id)
+        if (scope.has(id)) {
+            throw Error('duplicate declare variable：' + declareName);
+        } else {
+            scope.set(id, function (...args) {
+                const funcScope = new Scope(scope)
+                node.params.forEach((item, index) => {
+                    funcScope.set(evaluate(item), args[index])
+                })
+                funcScope.set('this', this)
+                return evaluate(node.body, funcScope)
+            })
+        }
+    },
+    // 函数调用
     CallExpression: (node, scope) => {
         let fn = evaluate(node.callee, scope)
-
+        if (typeof fn === 'string') fn = scope.get(fn)
         let args = node.arguments.map((item) => {
             if (item.type === 'Identifier') return scope.get(item.name)
             return evaluate(item, scope)
         })
+        // 返回值
         if (node.callee.type === 'MemberExpression') {
             const obj = evaluate(node.callee.object)
             return fn.apply(obj, args)
-        } else fn.apply(null, args)
+        } else {
+            return fn.apply(null, args)
+        }
 
     },
+    BlockStatement: (node, scope) => {
+        for (let i of node.body) {
+            if (i.type === 'ReturnStatement') {
+                return evaluate(i, scope)
+            }
+            evaluate(i, scope)
+        }
+    },
+    ReturnStatement: (node, scope) => {
+        return evaluate(node.argument, scope)
+    },
     MemberExpression: (node, scope) => {
+
         const obj = scope.get(evaluate(node.object))
 
         return obj[evaluate(node.property)]
@@ -82,7 +115,13 @@ const astInterpreters = {
     },
     BinaryExpression: (node, scope) => {
         let left = evaluate(node.left, scope)
+        if (node.left.type === 'Identifier') {
+            left = scope.get(left)
+        }
         let right = evaluate(node.right, scope)
+        if (node.right.type === 'Identifier') {
+            right = scope.get(right)
+        }
         switch (node.operator) {
             case '+':
                 return left + right
@@ -118,6 +157,7 @@ function evaluate(node, scope) {
     }
 }
 const globalScope = new Scope()
+// 全局对象
 globalScope.set('console', {
     log: function (...args) {
         console.log(chalk.green(...args));
@@ -130,4 +170,4 @@ globalScope.set('console', {
     }
 })
 evaluate(ast.program, globalScope)
-console.log(globalScope);
+// console.log(globalScope);
