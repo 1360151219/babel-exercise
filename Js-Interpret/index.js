@@ -1,16 +1,7 @@
 import parser from "@babel/parser"
 import { codeFrameColumns } from "@babel/code-frame"
 import chalk from "chalk"
-const code = `
-const a=1+2
-console.log(a)
-console.error(a)
-function add(a,b){return a+b}
-console.warn(add(1,2))
-`
-const ast = parser.parse(code, {
-    sourceType: "unambiguous"
-})
+
 class Scope {
     constructor(parentScope) {
         this.parent = parentScope
@@ -23,7 +14,6 @@ class Scope {
         return this.declarations[name]
     }
     get(name) {
-
         let res = this.getLocal(name)
         if (!res && this.parent) {
             // 递归向上搜索
@@ -68,8 +58,9 @@ const astInterpreters = {
         } else {
             scope.set(id, function (...args) {
                 const funcScope = new Scope(scope)
+                // 形参对应实参
                 node.params.forEach((item, index) => {
-                    funcScope.set(evaluate(item), args[index])
+                    funcScope.set(evaluate(item, funcScope), args[index])
                 })
                 funcScope.set('this', this)
                 return evaluate(node.body, funcScope)
@@ -86,10 +77,11 @@ const astInterpreters = {
         })
         // 返回值
         if (node.callee.type === 'MemberExpression') {
-            const obj = evaluate(node.callee.object)
+            const obj = scope.get(evaluate(node.callee.object))
             return fn.apply(obj, args)
         } else {
-            return fn.apply(null, args)
+            // 这里绑定的this 如果没有调用者这是外层的scope（window）
+            return fn.apply(scope, args)
         }
 
     },
@@ -105,10 +97,10 @@ const astInterpreters = {
         return evaluate(node.argument, scope)
     },
     MemberExpression: (node, scope) => {
-
-        const obj = scope.get(evaluate(node.object))
-
-        return obj[evaluate(node.property)]
+        // 可能是对象或者是Scope
+        const obj = scope.get(evaluate(node.object, scope))
+        const key = evaluate(node.property)
+        return obj[key] ?? obj.get(key)
     },
     Identifier: (node, scope) => {
         return node.name
@@ -138,6 +130,9 @@ const astInterpreters = {
     },
     NumericLiteral: (node, scope) => {
         return node.value;
+    },
+    ThisExpression: (node, scope) => {
+        return 'this'
     }
 }
 function evaluate(node, scope) {
@@ -169,5 +164,24 @@ globalScope.set('console', {
         console.warn(chalk.yellow(...args));
     }
 })
-evaluate(ast.program, globalScope)
+const code = `
+const a=1+2
+console.log(a)
+console.error(a)
+function add(a,b){return a+b}
+console.warn(add(1,2))
+`
+const code2 = `
+let a = 2;
+function foo(){let a = 10;console.log(this.a)}
+foo()
+`
+const ast = parser.parse(code, {
+    sourceType: "unambiguous"
+})
+const ast2 = parser.parse(code2, {
+    sourceType: "unambiguous"
+})
+// evaluate(ast.program, globalScope)
+evaluate(ast2.program, globalScope)
 // console.log(globalScope);

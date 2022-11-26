@@ -5,6 +5,15 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Js Interpret",
+            "program": "${workspaceFolder}/Js-Interpret/index.js",
+            "request": "launch",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "type": "node"
+        },
+        {
             "type": "pwa-node",
             "request": "launch",
             "name": "Launch Program",
