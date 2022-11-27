@@ -142,10 +142,10 @@ function evaluate(node, scope) {
     } catch (e) {
         if (e && e.message && e.message.indexOf('astInterpreters[node.type] is not a function') > -1) {
             console.error(`unsupport type for ${node.type}`);
+            // TODO: 这里的code没有传进来
             console.error(codeFrameColumns(code, node.loc, {
                 highlightCode: true
             }))
-            // console.log(node.loc);
         }
 
 

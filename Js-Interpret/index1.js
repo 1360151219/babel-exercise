@@ -1,7 +1,7 @@
-const parser = require('@babel/parser');
+import { parse } from '@babel/parser';
 
-function eval(code) {
-    const ast = parser.parse(code);
+function evall(code) {
+    const ast = parse(code);
 
     evaluate(ast.program);
 }
@@ -61,7 +61,6 @@ const astInterpreters = {
     },
     AssignmentExpression(node) {
         const ans = [node.left]
-
         let curNode = node
         while (curNode.right.type === "AssignmentExpression") {
             curNode = curNode.right
@@ -104,5 +103,5 @@ a.x=a={n:2}
 // var a=b=1 相当于 var a=b ，b=1,b为全局变量了
 //它外面怎么还包裹了个 ExpressionStatement 节点呢？
 //因为表达式不能直接执行，语句才是执行的基本单位，那么表达式包裹一层表达式语句（ExpressionStatement）就可以了。
-eval(code);
+evall(code);
 console.log(scope);

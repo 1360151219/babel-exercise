@@ -17,7 +17,6 @@ export default declare((api, options, dirname) => {
         visitor: {
             BlockStatement: (path, state) => {
                 const body = path.get('body')
-
                 let clean = false
                 for (let expressionPath of body) {
                     if (expressionPath.isCompletionStatement()) {

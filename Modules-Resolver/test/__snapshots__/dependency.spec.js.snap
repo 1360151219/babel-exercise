@@ -1,0 +1,272 @@
+// Vitest Snapshot v1
+
+exports[`single module graph > dependencyGraph 1`] = `
+"{
+    \\"root\\": {
+        \\"path\\": \\"/Applications/workplace/babel-exercise/Modules-Resolver/test/module1.js\\",
+        \\"imports\\": {
+            \\"/Applications/workplace/babel-exercise/Modules-Resolver/test/module2.js\\": [
+                {
+                    \\"local\\": \\"a\\",
+                    \\"imported\\": \\"a\\",
+                    \\"type\\": \\"deconstruct\\"
+                },
+                {
+                    \\"local\\": \\"bModule2\\",
+                    \\"imported\\": \\"b\\",
+                    \\"type\\": \\"deconstruct\\"
+                }
+            ]
+        },
+        \\"exports\\": [],
+        \\"subModules\\": {
+            \\"/Applications/workplace/babel-exercise/Modules-Resolver/test/module2.js\\": {
+                \\"path\\": \\"/Applications/workplace/babel-exercise/Modules-Resolver/test/module2.js\\",
+                \\"imports\\": {
+                    \\"/Applications/workplace/babel-exercise/Modules-Resolver/test/module3.js\\": [
+                        {
+                            \\"local\\": \\"c\\",
+                            \\"type\\": \\"default\\"
+                        }
+                    ]
+                },
+                \\"exports\\": [
+                    [
+                        {
+                            \\"local\\": \\"a\\",
+                            \\"exported\\": \\"a\\",
+                            \\"type\\": \\"named\\"
+                        },
+                        {
+                            \\"local\\": \\"b\\",
+                            \\"exported\\": \\"b\\",
+                            \\"type\\": \\"named\\"
+                        }
+                    ]
+                ],
+                \\"subModules\\": {
+                    \\"/Applications/workplace/babel-exercise/Modules-Resolver/test/module3.js\\": {
+                        \\"path\\": \\"/Applications/workplace/babel-exercise/Modules-Resolver/test/module3.js\\",
+                        \\"imports\\": {
+                            \\"/Applications/workplace/babel-exercise/Modules-Resolver/test/module4.js\\": [
+                                {
+                                    \\"local\\": \\"d\\",
+                                    \\"type\\": \\"namespace\\"
+                                }
+                            ]
+                        },
+                        \\"exports\\": [
+                            [
+                                {
+                                    \\"local\\": \\"c\\",
+                                    \\"exported\\": \\"ccc\\",
+                                    \\"type\\": \\"named\\"
+                                }
+                            ]
+                        ],
+                        \\"subModules\\": {
+                            \\"/Applications/workplace/babel-exercise/Modules-Resolver/test/module4.js\\": {
+                                \\"path\\": \\"/Applications/workplace/babel-exercise/Modules-Resolver/test/module4.js\\",
+                                \\"imports\\": {},
+                                \\"exports\\": [
+                                    {
+                                        \\"type\\": \\"default\\",
+                                        \\"exported\\": \\"1\\"
+                                    }
+                                ],
+                                \\"subModules\\": {}
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    \\"allModules\\": {
+        \\"/Applications/workplace/babel-exercise/Modules-Resolver/test/module1.js\\": {
+            \\"path\\": \\"/Applications/workplace/babel-exercise/Modules-Resolver/test/module1.js\\",
+            \\"imports\\": {
+                \\"/Applications/workplace/babel-exercise/Modules-Resolver/test/module2.js\\": [
+                    {
+                        \\"local\\": \\"a\\",
+                        \\"imported\\": \\"a\\",
+                        \\"type\\": \\"deconstruct\\"
+                    },
+                    {
+                        \\"local\\": \\"bModule2\\",
+                        \\"imported\\": \\"b\\",
+                        \\"type\\": \\"deconstruct\\"
+                    }
+                ]
+            },
+            \\"exports\\": [],
+            \\"subModules\\": {
+                \\"/Applications/workplace/babel-exercise/Modules-Resolver/test/module2.js\\": {
+                    \\"path\\": \\"/Applications/workplace/babel-exercise/Modules-Resolver/test/module2.js\\",
+                    \\"imports\\": {
+                        \\"/Applications/workplace/babel-exercise/Modules-Resolver/test/module3.js\\": [
+                            {
+                                \\"local\\": \\"c\\",
+                                \\"type\\": \\"default\\"
+                            }
+                        ]
+                    },
+                    \\"exports\\": [
+                        [
+                            {
+                                \\"local\\": \\"a\\",
+                                \\"exported\\": \\"a\\",
+                                \\"type\\": \\"named\\"
+                            },
+                            {
+                                \\"local\\": \\"b\\",
+                                \\"exported\\": \\"b\\",
+                                \\"type\\": \\"named\\"
+                            }
+                        ]
+                    ],
+                    \\"subModules\\": {
+                        \\"/Applications/workplace/babel-exercise/Modules-Resolver/test/module3.js\\": {
+                            \\"path\\": \\"/Applications/workplace/babel-exercise/Modules-Resolver/test/module3.js\\",
+                            \\"imports\\": {
+                                \\"/Applications/workplace/babel-exercise/Modules-Resolver/test/module4.js\\": [
+                                    {
+                                        \\"local\\": \\"d\\",
+                                        \\"type\\": \\"namespace\\"
+                                    }
+                                ]
+                            },
+                            \\"exports\\": [
+                                [
+                                    {
+                                        \\"local\\": \\"c\\",
+                                        \\"exported\\": \\"ccc\\",
+                                        \\"type\\": \\"named\\"
+                                    }
+                                ]
+                            ],
+                            \\"subModules\\": {
+                                \\"/Applications/workplace/babel-exercise/Modules-Resolver/test/module4.js\\": {
+                                    \\"path\\": \\"/Applications/workplace/babel-exercise/Modules-Resolver/test/module4.js\\",
+                                    \\"imports\\": {},
+                                    \\"exports\\": [
+                                        {
+                                            \\"type\\": \\"default\\",
+                                            \\"exported\\": \\"1\\"
+                                        }
+                                    ],
+                                    \\"subModules\\": {}
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        \\"/Applications/workplace/babel-exercise/Modules-Resolver/test/module2.js\\": {
+            \\"path\\": \\"/Applications/workplace/babel-exercise/Modules-Resolver/test/module2.js\\",
+            \\"imports\\": {
+                \\"/Applications/workplace/babel-exercise/Modules-Resolver/test/module3.js\\": [
+                    {
+                        \\"local\\": \\"c\\",
+                        \\"type\\": \\"default\\"
+                    }
+                ]
+            },
+            \\"exports\\": [
+                [
+                    {
+                        \\"local\\": \\"a\\",
+                        \\"exported\\": \\"a\\",
+                        \\"type\\": \\"named\\"
+                    },
+                    {
+                        \\"local\\": \\"b\\",
+                        \\"exported\\": \\"b\\",
+                        \\"type\\": \\"named\\"
+                    }
+                ]
+            ],
+            \\"subModules\\": {
+                \\"/Applications/workplace/babel-exercise/Modules-Resolver/test/module3.js\\": {
+                    \\"path\\": \\"/Applications/workplace/babel-exercise/Modules-Resolver/test/module3.js\\",
+                    \\"imports\\": {
+                        \\"/Applications/workplace/babel-exercise/Modules-Resolver/test/module4.js\\": [
+                            {
+                                \\"local\\": \\"d\\",
+                                \\"type\\": \\"namespace\\"
+                            }
+                        ]
+                    },
+                    \\"exports\\": [
+                        [
+                            {
+                                \\"local\\": \\"c\\",
+                                \\"exported\\": \\"ccc\\",
+                                \\"type\\": \\"named\\"
+                            }
+                        ]
+                    ],
+                    \\"subModules\\": {
+                        \\"/Applications/workplace/babel-exercise/Modules-Resolver/test/module4.js\\": {
+                            \\"path\\": \\"/Applications/workplace/babel-exercise/Modules-Resolver/test/module4.js\\",
+                            \\"imports\\": {},
+                            \\"exports\\": [
+                                {
+                                    \\"type\\": \\"default\\",
+                                    \\"exported\\": \\"1\\"
+                                }
+                            ],
+                            \\"subModules\\": {}
+                        }
+                    }
+                }
+            }
+        },
+        \\"/Applications/workplace/babel-exercise/Modules-Resolver/test/module3.js\\": {
+            \\"path\\": \\"/Applications/workplace/babel-exercise/Modules-Resolver/test/module3.js\\",
+            \\"imports\\": {
+                \\"/Applications/workplace/babel-exercise/Modules-Resolver/test/module4.js\\": [
+                    {
+                        \\"local\\": \\"d\\",
+                        \\"type\\": \\"namespace\\"
+                    }
+                ]
+            },
+            \\"exports\\": [
+                [
+                    {
+                        \\"local\\": \\"c\\",
+                        \\"exported\\": \\"ccc\\",
+                        \\"type\\": \\"named\\"
+                    }
+                ]
+            ],
+            \\"subModules\\": {
+                \\"/Applications/workplace/babel-exercise/Modules-Resolver/test/module4.js\\": {
+                    \\"path\\": \\"/Applications/workplace/babel-exercise/Modules-Resolver/test/module4.js\\",
+                    \\"imports\\": {},
+                    \\"exports\\": [
+                        {
+                            \\"type\\": \\"default\\",
+                            \\"exported\\": \\"1\\"
+                        }
+                    ],
+                    \\"subModules\\": {}
+                }
+            }
+        },
+        \\"/Applications/workplace/babel-exercise/Modules-Resolver/test/module4.js\\": {
+            \\"path\\": \\"/Applications/workplace/babel-exercise/Modules-Resolver/test/module4.js\\",
+            \\"imports\\": {},
+            \\"exports\\": [
+                {
+                    \\"type\\": \\"default\\",
+                    \\"exported\\": \\"1\\"
+                }
+            ],
+            \\"subModules\\": {}
+        }
+    }
+}"
+`;
