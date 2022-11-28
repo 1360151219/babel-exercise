@@ -7,13 +7,26 @@ function parse(code: string) {
     ecmaVersion: 'latest'
   })
 }
-it("traverse",()=>{
+it("traverse normally",()=>{
   const code = 'let a = 1';
   const ast = parse(code)
   traverse(ast,{
-    Identifier:(node)=>{
-      node.name = 'b'
+    Identifier:(path)=>{
+      path.node.name = 'b'
     }
   })
-  expect(ast).toMatchSnapshot("traverse")
+  expect(ast).toMatchSnapshot("traverse normally")
+})
+
+it("traverse enter hook",()=>{
+  const code = 'let a = 1';
+  const ast = parse(code)
+  traverse(ast,{
+    Identifier:{
+      enter:(path)=>{
+        path.node.name = 'c'
+      }
+    }
+  })
+  expect(ast).toMatchSnapshot("traverse enter hook")
 })

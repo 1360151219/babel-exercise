@@ -1,6 +1,94 @@
 // Vitest Snapshot v1
 
-exports[`traverse > traverse 1`] = `
+
+exports[`traverse enter hook > traverse enter hook 1`] = `
+Node {
+  "body": [
+    Node {
+      "declarations": [
+        Node {
+          "end": 9,
+          "id": Node {
+            "end": 5,
+            "loc": SourceLocation {
+              "end": Position {
+                "column": 5,
+                "line": 1,
+              },
+              "start": Position {
+                "column": 4,
+                "line": 1,
+              },
+            },
+            "name": "c",
+            "start": 4,
+            "type": "Identifier",
+          },
+          "init": Node {
+            "end": 9,
+            "loc": SourceLocation {
+              "end": Position {
+                "column": 9,
+                "line": 1,
+              },
+              "start": Position {
+                "column": 8,
+                "line": 1,
+              },
+            },
+            "raw": "1",
+            "start": 8,
+            "type": "NumericLiteral",
+            "value": 1,
+          },
+          "loc": SourceLocation {
+            "end": Position {
+              "column": 9,
+              "line": 1,
+            },
+            "start": Position {
+              "column": 4,
+              "line": 1,
+            },
+          },
+          "start": 4,
+          "type": "VariableDeclarator",
+        },
+      ],
+      "end": 9,
+      "kind": "let",
+      "loc": SourceLocation {
+        "end": Position {
+          "column": 9,
+          "line": 1,
+        },
+        "start": Position {
+          "column": 0,
+          "line": 1,
+        },
+      },
+      "start": 0,
+      "type": "VariableDeclaration",
+    },
+  ],
+  "end": 9,
+  "loc": SourceLocation {
+    "end": Position {
+      "column": 9,
+      "line": 1,
+    },
+    "start": Position {
+      "column": 0,
+      "line": 1,
+    },
+  },
+  "sourceType": "script",
+  "start": 0,
+  "type": "Program",
+}
+`;
+
+exports[`traverse normally > traverse normally 1`] = `
 Node {
   "body": [
     Node {
