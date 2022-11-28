@@ -215,3 +215,7 @@ path.remove()
 基本思路：首先通过`babelParser`生成AST，从AST头部开始向下遍历整棵树（深度遍历），进行相应node的解析。「注意」：这里需要处理作用域链，使用一个类似哈希表的链表即可实现。
 
 ## 案例十: 实现一个模块遍历器
+
+Modules-Resolver
+
+基本思路：通过ast解析`ImportDeclaration`和`ExportDeclaration`来对每一个模块进行分析，构建成一个模块依赖图。

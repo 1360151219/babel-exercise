@@ -1,0 +1,262 @@
+// Vitest Snapshot v1
+
+exports[`parse booleanLiteral > booleanLiteral 1`] = `
+Node {
+  "body": [
+    Node {
+      "declarations": [
+        Node {
+          "end": 12,
+          "id": Node {
+            "end": 5,
+            "loc": SourceLocation {
+              "end": Position {
+                "column": 5,
+                "line": 1,
+              },
+              "start": Position {
+                "column": 4,
+                "line": 1,
+              },
+            },
+            "name": "a",
+            "start": 4,
+            "type": "Identifier",
+          },
+          "init": Node {
+            "end": 12,
+            "loc": SourceLocation {
+              "end": Position {
+                "column": 12,
+                "line": 1,
+              },
+              "start": Position {
+                "column": 8,
+                "line": 1,
+              },
+            },
+            "raw": "true",
+            "start": 8,
+            "type": "Literal",
+            "value": true,
+          },
+          "loc": SourceLocation {
+            "end": Position {
+              "column": 12,
+              "line": 1,
+            },
+            "start": Position {
+              "column": 4,
+              "line": 1,
+            },
+          },
+          "start": 4,
+          "type": "VariableDeclarator",
+        },
+      ],
+      "end": 13,
+      "kind": "let",
+      "loc": SourceLocation {
+        "end": Position {
+          "column": 13,
+          "line": 1,
+        },
+        "start": Position {
+          "column": 0,
+          "line": 1,
+        },
+      },
+      "start": 0,
+      "type": "VariableDeclaration",
+    },
+  ],
+  "end": 13,
+  "loc": SourceLocation {
+    "end": Position {
+      "column": 13,
+      "line": 1,
+    },
+    "start": Position {
+      "column": 0,
+      "line": 1,
+    },
+  },
+  "sourceType": "script",
+  "start": 0,
+  "type": "Program",
+}
+`;
+
+exports[`parse numberLiteral > numberLiteral 1`] = `
+Node {
+  "body": [
+    Node {
+      "declarations": [
+        Node {
+          "end": 9,
+          "id": Node {
+            "end": 5,
+            "loc": SourceLocation {
+              "end": Position {
+                "column": 5,
+                "line": 1,
+              },
+              "start": Position {
+                "column": 4,
+                "line": 1,
+              },
+            },
+            "name": "a",
+            "start": 4,
+            "type": "Identifier",
+          },
+          "init": Node {
+            "end": 9,
+            "loc": SourceLocation {
+              "end": Position {
+                "column": 9,
+                "line": 1,
+              },
+              "start": Position {
+                "column": 8,
+                "line": 1,
+              },
+            },
+            "raw": "1",
+            "start": 8,
+            "type": "NumericLiteral",
+            "value": 1,
+          },
+          "loc": SourceLocation {
+            "end": Position {
+              "column": 9,
+              "line": 1,
+            },
+            "start": Position {
+              "column": 4,
+              "line": 1,
+            },
+          },
+          "start": 4,
+          "type": "VariableDeclarator",
+        },
+      ],
+      "end": 10,
+      "kind": "let",
+      "loc": SourceLocation {
+        "end": Position {
+          "column": 10,
+          "line": 1,
+        },
+        "start": Position {
+          "column": 0,
+          "line": 1,
+        },
+      },
+      "start": 0,
+      "type": "VariableDeclaration",
+    },
+  ],
+  "end": 10,
+  "loc": SourceLocation {
+    "end": Position {
+      "column": 10,
+      "line": 1,
+    },
+    "start": Position {
+      "column": 0,
+      "line": 1,
+    },
+  },
+  "sourceType": "script",
+  "start": 0,
+  "type": "Program",
+}
+`;
+
+exports[`parse stringLiteral > stringLiteral 1`] = `
+Node {
+  "body": [
+    Node {
+      "declarations": [
+        Node {
+          "end": 23,
+          "id": Node {
+            "end": 5,
+            "loc": SourceLocation {
+              "end": Position {
+                "column": 5,
+                "line": 1,
+              },
+              "start": Position {
+                "column": 4,
+                "line": 1,
+              },
+            },
+            "name": "a",
+            "start": 4,
+            "type": "Identifier",
+          },
+          "init": Node {
+            "end": 23,
+            "loc": SourceLocation {
+              "end": Position {
+                "column": 23,
+                "line": 1,
+              },
+              "start": Position {
+                "column": 8,
+                "line": 1,
+              },
+            },
+            "raw": "\\"I am a string\\"",
+            "start": 8,
+            "type": "StringLiteral",
+            "value": "I am a string",
+          },
+          "loc": SourceLocation {
+            "end": Position {
+              "column": 23,
+              "line": 1,
+            },
+            "start": Position {
+              "column": 4,
+              "line": 1,
+            },
+          },
+          "start": 4,
+          "type": "VariableDeclarator",
+        },
+      ],
+      "end": 24,
+      "kind": "let",
+      "loc": SourceLocation {
+        "end": Position {
+          "column": 24,
+          "line": 1,
+        },
+        "start": Position {
+          "column": 0,
+          "line": 1,
+        },
+      },
+      "start": 0,
+      "type": "VariableDeclaration",
+    },
+  ],
+  "end": 24,
+  "loc": SourceLocation {
+    "end": Position {
+      "column": 24,
+      "line": 1,
+    },
+    "start": Position {
+      "column": 0,
+      "line": 1,
+    },
+  },
+  "sourceType": "script",
+  "start": 0,
+  "type": "Program",
+}
+`;

@@ -10,4 +10,4 @@ let program = `
     const a=1
 `
 let code = MyParser.parse(program, { ecmaVersion: 2015 })
-console.log(code.body[1])
+console.log(JSON.stringify(code, null, 4))
