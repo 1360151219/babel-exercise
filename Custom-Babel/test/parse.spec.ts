@@ -1,11 +1,6 @@
 import { expect, it } from 'vitest'
-import Parser from '../index'
-function parse(code: string) {
-  return Parser.parse(code, {
-    locations: true,
-    ecmaVersion: 'latest'
-  })
-}
+import parse from '../index'
+
 it("parse numberLiteral", () => {
   const code = 'let a = 1;'
   expect(parse(code)).toMatchSnapshot("numberLiteral")

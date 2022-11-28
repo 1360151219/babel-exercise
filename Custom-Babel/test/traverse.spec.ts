@@ -1,32 +1,42 @@
 import { expect, it } from 'vitest'
-import Parser from '../index'
+import parse from '../index'
 import traverse from '../traverse'
-function parse(code: string) {
-  return Parser.parse(code, {
-    locations: true,
-    ecmaVersion: 'latest'
-  })
-}
-it("traverse normally",()=>{
+
+it("traverse normally", () => {
   const code = 'let a = 1';
   const ast = parse(code)
-  traverse(ast,{
-    Identifier:(path)=>{
+  traverse(ast, {
+    Identifier: (path) => {
       path.node.name = 'b'
     }
   })
   expect(ast).toMatchSnapshot("traverse normally")
 })
 
-it("traverse enter hook",()=>{
+it("traverse enter hook", () => {
   const code = 'let a = 1';
   const ast = parse(code)
-  traverse(ast,{
-    Identifier:{
-      enter:(path)=>{
+  traverse(ast, {
+    Identifier: {
+      enter: (path) => {
         path.node.name = 'c'
+        console.log(path);
+
       }
     }
   })
   expect(ast).toMatchSnapshot("traverse enter hook")
+})
+
+it("traverse replaceWith api", () => {
+  const code = 'foo(a)';
+  const ast = parse(code)
+  traverse(ast, {
+    Identifier: (path) => {
+      if (path.findParent(p => p.isCallExpression()) && path.node.name === 'a') {
+        path.replaceWith({ type: 'Identifier', name: 'hello' })
+      }
+    }
+  })
+  expect(ast).toMatchSnapshot("traverse replaceWith api")
 })

@@ -1,6 +1,5 @@
 // Vitest Snapshot v1
 
-
 exports[`traverse enter hook > traverse enter hook 1`] = `
 Node {
   "body": [
@@ -162,6 +161,78 @@ Node {
   "loc": SourceLocation {
     "end": Position {
       "column": 9,
+      "line": 1,
+    },
+    "start": Position {
+      "column": 0,
+      "line": 1,
+    },
+  },
+  "sourceType": "script",
+  "start": 0,
+  "type": "Program",
+}
+`;
+
+exports[`traverse replaceWith api > traverse replaceWith api 1`] = `
+Node {
+  "body": [
+    Node {
+      "end": 6,
+      "expression": Node {
+        "arguments": {
+          "name": "hello",
+          "type": "Identifier",
+        },
+        "callee": Node {
+          "end": 3,
+          "loc": SourceLocation {
+            "end": Position {
+              "column": 3,
+              "line": 1,
+            },
+            "start": Position {
+              "column": 0,
+              "line": 1,
+            },
+          },
+          "name": "foo",
+          "start": 0,
+          "type": "Identifier",
+        },
+        "end": 6,
+        "loc": SourceLocation {
+          "end": Position {
+            "column": 6,
+            "line": 1,
+          },
+          "start": Position {
+            "column": 0,
+            "line": 1,
+          },
+        },
+        "optional": false,
+        "start": 0,
+        "type": "CallExpression",
+      },
+      "loc": SourceLocation {
+        "end": Position {
+          "column": 6,
+          "line": 1,
+        },
+        "start": Position {
+          "column": 0,
+          "line": 1,
+        },
+      },
+      "start": 0,
+      "type": "ExpressionStatement",
+    },
+  ],
+  "end": 6,
+  "loc": SourceLocation {
+    "end": Position {
+      "column": 6,
       "line": 1,
     },
     "start": Position {
