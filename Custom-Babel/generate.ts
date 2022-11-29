@@ -1,3 +1,4 @@
+import { SourceMapGenerator } from 'source-map'
 class Printer {
   /**
    * code
@@ -11,14 +12,31 @@ class Printer {
    * 当前所在的列数
    */
   printColumn: number;
+  sourceMapGenerator: SourceMapGenerator;
+  fileName: string;
   constructor(source, fileName) {
+    // sourcemap
+    this.sourceMapGenerator = new SourceMapGenerator({
+      file: fileName + ".map.json",
+    });
+    this.fileName = fileName;
+    this.sourceMapGenerator.setSourceContent(fileName, source);
     this.buf = '';
     this.printLine = 1;
     this.printColumn = 0;
   }
 
   addMapping(node) {
-    // TODO
+    if (node.loc) {
+      this.sourceMapGenerator.addMapping({
+        generated: {
+          line: this.printLine,
+          column: this.printColumn
+        },
+        source: this.fileName,
+        original: node.loc && node.loc.start
+      })
+    }
   }
 
   space() {
@@ -93,6 +111,7 @@ class Printer {
   NumericLiteral(node) {
     this.token(node.raw)
   }
+
   StringLiteral(node) {
     this.token(node.raw)
   }
@@ -106,6 +125,7 @@ class Generator extends Printer {
     this[node.type](node)
     return {
       code: this.buf,
+      map: this.sourceMapGenerator.toString()
       //..
     }
   }

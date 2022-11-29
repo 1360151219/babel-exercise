@@ -1,0 +1,3 @@
+// Vitest Snapshot v1
+
+exports[`generate test > generate VariableDeclaration > sourceMap 1`] = `"{\\"version\\":3,\\"sources\\":[\\"a.js\\"],\\"names\\":[],\\"mappings\\":\\"AAAA,CAAI,EAAE,MAAM\\",\\"file\\":\\"a.js.map.json\\",\\"sourcesContent\\":[\\"let a,b = 1,c = \\\\\\"c\\\\\\";\\"]}"`;

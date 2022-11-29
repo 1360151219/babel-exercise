@@ -10,7 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "acorn": "^8.8.1"
+    "acorn": "^8.8.1",
+    "source-map": "^0.7.4"
   },
   "devDependencies": {
     "vitest": "^0.25.3"

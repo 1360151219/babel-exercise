@@ -6,13 +6,14 @@ describe("generate test", ()=>{
   test('generate Program', () => {
     const code = ''
     const ast = parse(code)
-    const res = generate(ast).code
+    const res = generate(ast,code,'css.js').code
     expect(res).toEqual('')
   })
   test('generate VariableDeclaration', () => {
     const code = 'let a,b = 1,c = "c";'
     const ast = parse(code)
-    const res = generate(ast).code
-    expect(res).toEqual('let a,b = 1,c = "c";')
+    const res = generate(ast,code,'a.js')
+    expect(res.code).toEqual('let a,b = 1,c = "c";')
+    expect(res.map).toMatchSnapshot('sourceMap')
   })
 })
