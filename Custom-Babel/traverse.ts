@@ -12,7 +12,7 @@ class NodePath {
      * 记录当前Node在父节点的数组下标
      */
     listKey?: number;
-    _scope?:Scope;
+    _scope?: Scope;
     constructor(node, parent, parentPath?: NodePath, key?: string, listKey?: number) {
         this.node = node
         this.parent = parent
@@ -95,16 +95,16 @@ class NodePath {
     toString() {
         // return generate(this.node).code
     }
-    isBlock(){
+    isBlock() {
         return astDefinationsMap.get(this.node.type).isBlock;
     }
     /**
      * Scope
      */
-    get scope(){
-        if(this._scope) return this._scope;
+    get scope() {
+        if (this._scope) return this._scope;
         const parentScope = this.parentPath && this.parentPath.scope;
-        return this._scope = this.isBlock() ? new Scope(this,parentScope) : parentScope
+        return this._scope = this.isBlock() ? new Scope(this, parentScope) : parentScope
     }
 }
 class Binding {
@@ -129,22 +129,22 @@ class Scope {
         this.bindings = bindings
 
         path.traverse({
-            VariableDeclarator:(path)=>{
-                this.registerBinding(path.node.id.name,path)
+            VariableDeclarator: (path) => {
+                this.registerBinding(path.node.id.name, path)
             },
-            FunctionDeclaration:(path)=>{
+            FunctionDeclaration: (path) => {
                 // 函数有自己的独立作用域
                 path.skip()
-                this.registerBinding(path.node.id.name,path)
+                this.registerBinding(path.node.id.name, path)
             }
         })
 
         path.traverse({
-            Identifier:(path)=>{
+            Identifier: (path) => {
                 // 是引用声明而不是定义声明
-                if(!path.findParent(p=>p.isFunctionDeclaration()||p.isVariableDeclarator())){
+                if (!path.findParent(p => p.isFunctionDeclaration() || p.isVariableDeclarator())) {
                     const binding = this.getBinding(path.node.name)
-                    if(binding){
+                    if (binding) {
                         binding.referenced = true
                         binding.referencePaths.push(path)
                     }
@@ -155,13 +155,13 @@ class Scope {
     registerBinding(id: string, path: NodePath) {
         this.bindings[id] = new Binding(id, path)
     }
-    getOwnBinding(id: string){
+    getOwnBinding(id: string) {
         return this.bindings[id]
     }
-    getBinding(id: string){
+    getBinding(id: string) {
         let binding = this.getOwnBinding(id)
         let cur: Scope = this;
-        while(!binding&&cur.parent){
+        while (!binding && cur.parent) {
             binding = cur.parent.getOwnBinding(id);
             cur = cur.parent
         }
@@ -174,10 +174,10 @@ class Scope {
 
 
 export default function traverse(node, visitor, parent?, parentPath?: NodePath, key?: string, listKey?: number) {
-    if(!node) return;
+    if (!node) return;
     const curNodeType = node.type
     if (!astDefinationsMap.has(curNodeType)) {
-        throw new Error("error type:"+curNodeType);
+        throw new Error("error type:" + curNodeType);
     }
     // 调用用户自定义的visitor，支持enter&exit
     let visitorFunc = visitor[curNodeType] || {}
