@@ -219,3 +219,21 @@ path.remove()
 Modules-Resolver
 
 基本思路：通过ast解析`ImportDeclaration`和`ExportDeclaration`来对每一个模块进行分析，构建成一个模块依赖图。
+
+## 手写一个简易版Babel
+
+1. Babel Parser
+
+在之前的学习中我们知道Babel使用的是继承自`Acorn`自己实现的Parser，这里我们将拓展一下`Literal`节点的类型，即重写`parseLiteral`方法。
+
+2. traverse
+
+从根节点`Program`开始，进行整棵AST的深度遍历即可，同时加上`visitor`模式的操作。
+
+3. path api
+
+构建一个`NodePath`类，实现基本方法。
+
+4. scope api
+
+在所有`block`节点中都可以创建一个`scope`，创建时需要遍历父级scope，将所有bindings绑定在其上。。（优化：在`NodePath`获取`scope`的时候才创建。）

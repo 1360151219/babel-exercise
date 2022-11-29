@@ -5,7 +5,6 @@ export default (parserCtx: typeof Parser) => {
     parseLiteral(...args: any[]) {
       //@ts-ignore
       const node = super.parseLiteral(...args);
-      debugger;
       switch (typeof node.value) {
         case 'number':
           node.type = 'NumericLiteral'
@@ -18,7 +17,7 @@ export default (parserCtx: typeof Parser) => {
           node.type = 'BooleanLiteral'
           break;
         default:
-          node.type = 'hello'
+          node.type = 'HELLO'
           break;
       }
       return node

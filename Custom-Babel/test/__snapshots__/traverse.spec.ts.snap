@@ -174,6 +174,293 @@ Node {
 }
 `;
 
+exports[`traverse remove unReferenced FcuntionDeclaration > traverse remove unReferenced FcuntionDeclaration 1`] = `
+Node {
+  "body": [
+    Node {
+      "declarations": [
+        Node {
+          "end": 9,
+          "id": Node {
+            "end": 5,
+            "loc": SourceLocation {
+              "end": Position {
+                "column": 5,
+                "line": 1,
+              },
+              "start": Position {
+                "column": 4,
+                "line": 1,
+              },
+            },
+            "name": "a",
+            "start": 4,
+            "type": "Identifier",
+          },
+          "init": Node {
+            "end": 9,
+            "loc": SourceLocation {
+              "end": Position {
+                "column": 9,
+                "line": 1,
+              },
+              "start": Position {
+                "column": 8,
+                "line": 1,
+              },
+            },
+            "raw": "1",
+            "start": 8,
+            "type": "NumericLiteral",
+            "value": 1,
+          },
+          "loc": SourceLocation {
+            "end": Position {
+              "column": 9,
+              "line": 1,
+            },
+            "start": Position {
+              "column": 4,
+              "line": 1,
+            },
+          },
+          "start": 4,
+          "type": "VariableDeclarator",
+        },
+      ],
+      "end": 10,
+      "kind": "let",
+      "loc": SourceLocation {
+        "end": Position {
+          "column": 10,
+          "line": 1,
+        },
+        "start": Position {
+          "column": 0,
+          "line": 1,
+        },
+      },
+      "start": 0,
+      "type": "VariableDeclaration",
+    },
+    Node {
+      "declarations": [
+        Node {
+          "end": 19,
+          "id": Node {
+            "end": 15,
+            "loc": SourceLocation {
+              "end": Position {
+                "column": 15,
+                "line": 1,
+              },
+              "start": Position {
+                "column": 14,
+                "line": 1,
+              },
+            },
+            "name": "b",
+            "start": 14,
+            "type": "Identifier",
+          },
+          "init": Node {
+            "end": 19,
+            "loc": SourceLocation {
+              "end": Position {
+                "column": 19,
+                "line": 1,
+              },
+              "start": Position {
+                "column": 18,
+                "line": 1,
+              },
+            },
+            "raw": "2",
+            "start": 18,
+            "type": "NumericLiteral",
+            "value": 2,
+          },
+          "loc": SourceLocation {
+            "end": Position {
+              "column": 19,
+              "line": 1,
+            },
+            "start": Position {
+              "column": 14,
+              "line": 1,
+            },
+          },
+          "start": 14,
+          "type": "VariableDeclarator",
+        },
+      ],
+      "end": 20,
+      "kind": "let",
+      "loc": SourceLocation {
+        "end": Position {
+          "column": 20,
+          "line": 1,
+        },
+        "start": Position {
+          "column": 10,
+          "line": 1,
+        },
+      },
+      "start": 10,
+      "type": "VariableDeclaration",
+    },
+    Node {
+      "end": 44,
+      "expression": Node {
+        "end": 43,
+        "left": Node {
+          "end": 37,
+          "loc": SourceLocation {
+            "end": Position {
+              "column": 37,
+              "line": 1,
+            },
+            "start": Position {
+              "column": 36,
+              "line": 1,
+            },
+          },
+          "name": "b",
+          "start": 36,
+          "type": "Identifier",
+        },
+        "loc": SourceLocation {
+          "end": Position {
+            "column": 43,
+            "line": 1,
+          },
+          "start": Position {
+            "column": 36,
+            "line": 1,
+          },
+        },
+        "operator": "=",
+        "right": Node {
+          "end": 43,
+          "left": Node {
+            "end": 41,
+            "loc": SourceLocation {
+              "end": Position {
+                "column": 41,
+                "line": 1,
+              },
+              "start": Position {
+                "column": 40,
+                "line": 1,
+              },
+            },
+            "name": "a",
+            "start": 40,
+            "type": "Identifier",
+          },
+          "loc": SourceLocation {
+            "end": Position {
+              "column": 43,
+              "line": 1,
+            },
+            "start": Position {
+              "column": 40,
+              "line": 1,
+            },
+          },
+          "operator": "+",
+          "right": Node {
+            "end": 43,
+            "loc": SourceLocation {
+              "end": Position {
+                "column": 43,
+                "line": 1,
+              },
+              "start": Position {
+                "column": 42,
+                "line": 1,
+              },
+            },
+            "raw": "2",
+            "start": 42,
+            "type": "NumericLiteral",
+            "value": 2,
+          },
+          "start": 40,
+          "type": "BinaryExpression",
+        },
+        "start": 36,
+        "type": "AssignmentExpression",
+      },
+      "loc": SourceLocation {
+        "end": Position {
+          "column": 44,
+          "line": 1,
+        },
+        "start": Position {
+          "column": 36,
+          "line": 1,
+        },
+      },
+      "start": 36,
+      "type": "ExpressionStatement",
+    },
+  ],
+  "end": 44,
+  "loc": SourceLocation {
+    "end": Position {
+      "column": 44,
+      "line": 1,
+    },
+    "start": Position {
+      "column": 0,
+      "line": 1,
+    },
+  },
+  "sourceType": "script",
+  "start": 0,
+  "type": "Program",
+}
+`;
+
+exports[`traverse remove unReferenced identifier > traverse remove unReferenced iddentifier 1`] = `
+Node {
+  "body": [
+    Node {
+      "declarations": undefined,
+      "end": 10,
+      "kind": "let",
+      "loc": SourceLocation {
+        "end": Position {
+          "column": 10,
+          "line": 1,
+        },
+        "start": Position {
+          "column": 0,
+          "line": 1,
+        },
+      },
+      "start": 0,
+      "type": "VariableDeclaration",
+    },
+  ],
+  "end": 10,
+  "loc": SourceLocation {
+    "end": Position {
+      "column": 10,
+      "line": 1,
+    },
+    "start": Position {
+      "column": 0,
+      "line": 1,
+    },
+  },
+  "sourceType": "script",
+  "start": 0,
+  "type": "Program",
+}
+`;
+
 exports[`traverse replaceWith api > traverse replaceWith api 1`] = `
 Node {
   "body": [
